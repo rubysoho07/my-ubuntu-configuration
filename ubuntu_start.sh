@@ -93,3 +93,5 @@ sudo apt -y install code
 # Install Heroku
 wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
+# Install GIMP & InkScape
+sudo apt -y install gimp inkscape
