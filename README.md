@@ -9,7 +9,7 @@ Contents for this script:
 - [x] Environment for developing software with Python (With pyenv, pip)
 - [x] Environment for developing software with Node.js (With nvm)
 - [ ] Environment for developing software with Go
-- [ ] Database: PostgresSQL, MongoDB, Redis
+- [x] Database: PostgresSQL, MongoDB, Redis
 - [x] Downloading and installing editors (e.g. vim, Visual Studio Code)
 
 After executing this script, I have to install IntelliJ & PyCharm from JetBrains manually.
