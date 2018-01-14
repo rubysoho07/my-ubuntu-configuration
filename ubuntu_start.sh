@@ -7,17 +7,12 @@
 # Java
 sudo add-apt-repository ppa:webupd8team/java
 
-# Visual Studio Code
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-
 # Touchpad-indicator
 sudo add-apt-repository ppa:atareao/atareao
 
 # MongoDB
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 
 #####
 # 2. Update and upgrade OS and applications. 
@@ -58,12 +53,12 @@ sudo apt -y install exfat-fuse exfat-utils
 sudo apt -y install ubuntu-restricted-extras
 sudo apt -y install smplayer
 
-# Install Java
+# Install Java 8
 sudo apt -y install oracle-java8-installer
 
 # Install pyenv & Python 2.7 + 3.6
 # (requisitions)
-sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
+sudo apt install -y make libssl-dev zlib1g-dev libbz2-dev \
 		 libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
 		 xz-utils tk-dev
 
@@ -74,6 +69,8 @@ echo '# pyenv' >> ~/.bashrc
 echo 'export PATH="/home/yungon/.pyenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+
+source ~/.bashrc
 
 pyenv update
 
@@ -90,6 +87,12 @@ nvm install stable
 # TODO: Install Golang
 
 # Install Visual Studio Code
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
+sudo apt update
+
 sudo apt -y install code
 
 # Install PostgreSQL
@@ -117,7 +120,6 @@ sudo apt -y install gimp inkscape
 
 # Make update script.
 echo '#!/bin/bash' > ~/update.sh
-echo '\n' >> ~/update.sh
 echo 'sudo apt update' >> ~/update.sh
 echo 'sudo apt -y upgrade' >> ~/update.sh
 echo 'sudo apt -y autoremove' >> ~/update.sh
