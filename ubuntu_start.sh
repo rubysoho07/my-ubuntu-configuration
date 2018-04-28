@@ -1,10 +1,24 @@
 #!/bin/bash
 
+#####
+# 1. Update and upgrade OS and applications. 
+#####
+echo 'Updating OS and Applications...'
+sudo apt update > /dev/null
+sudo apt -y upgrade > /dev/null
+sudo apt -y autoremove > /dev/null
+
+# Install curl & wget
+sudo apt -y install curl wget
+
+# To use exFAT formatted SD(or MicroSD) cards
+sudo apt -y install exfat-fuse exfat-utils
+
 # Install Git
-sudo apt install git
+sudo apt -y install git
 
 #####
-# 1. Register additional repositories
+# 2. Register additional repositories
 #####
 
 # Java
@@ -16,13 +30,6 @@ sudo add-apt-repository ppa:atareao/atareao
 # MongoDB
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
-
-#####
-# 2. Update and upgrade OS and applications. 
-#####
-sudo apt update
-sudo apt -y upgrade
-sudo apt -y autoremove
 
 #####
 # 3. Configuration
@@ -49,9 +56,6 @@ sudo apt -y install touchpad-indicator
 # build-essential (gcc, gdb...)
 sudo apt -y install build-essential
 
-# To use exFAT formatted SD(or MicroSD) cards
-sudo apt -y install exfat-fuse exfat-utils
-
 # Install Restricted extras & SMPlayer
 sudo apt -y install ubuntu-restricted-extras
 sudo apt -y install smplayer
@@ -62,7 +66,7 @@ sudo apt -y install oracle-java8-installer
 # Install pyenv & Python 2.7 + 3.6
 # (requisitions)
 sudo apt install -y make libssl-dev zlib1g-dev libbz2-dev \
-		 libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
+		 libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev \
 		 xz-utils tk-dev
 
 # Install pyenv
