@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Install Git
+sudo apt install git
+
 #####
 # 1. Register additional repositories
 #####
