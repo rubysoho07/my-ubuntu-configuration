@@ -58,7 +58,7 @@ sudo apt -y install exfat-fuse exfat-utils
 sudo apt -y install ubuntu-restricted-extras
 sudo apt -y install smplayer
 
-# Install Java
+# Install Java (From Oracle)
 sudo apt -y install oracle-java8-installer
 
 # Install pyenv & Python 2.7 + 3.6
@@ -127,3 +127,7 @@ echo 'sudo apt clean' >> ~/update.sh
 # Install ruby and jekyll
 sudo apt -y install ruby-full
 sudo gem install jekyll bundler
+
+# Configuration for Git
+git config --global user.name "Yungon Park"
+git config --global user.email "hahafree12@gmail.com"
