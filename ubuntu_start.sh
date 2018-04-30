@@ -31,12 +31,12 @@ sudo apt -y autoremove
 #####
 
 # To set resolution of grub
-sudo sed 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768' /etc/default/grub
+sudo sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768/' /etc/default/grub
 sudo update-grub > /dev/null
 
 # Disable avahi daemon
-sudo sed 's/AVAHI_DAEMON_DETECT_LOCAL=1/AVAHI_DAEMON_DETECT_LOCAL=0' /usr/lib/avahi/avahi-daemon-check-dns.sh
-sudo sed 's/AVAHI_DAEMON_DETECT_LOCAL=1/AVAHI_DAEMON_DETECT_LOCAL=0' /etc/default/avahi-daemon
+sudo sed -i 's/AVAHI_DAEMON_DETECT_LOCAL=1/AVAHI_DAEMON_DETECT_LOCAL=0/' /usr/lib/avahi/avahi-daemon-check-dns.sh
+sudo sed -i 's/AVAHI_DAEMON_DETECT_LOCAL=1/AVAHI_DAEMON_DETECT_LOCAL=0/' /etc/default/avahi-daemon
 
 #####
 # 4. Install packages
