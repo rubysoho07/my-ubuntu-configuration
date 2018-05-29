@@ -133,6 +133,8 @@ echo 'sudo apt -y autoremove' >> ~/update.sh
 echo 'sudo apt autoclean' >> ~/update.sh
 echo 'sudo apt clean' >> ~/update.sh
 
+chmod 755 ~/update.sh
+
 # Install ruby and jekyll
 sudo apt -y install ruby-full
 sudo gem install jekyll bundler
