@@ -140,3 +140,6 @@ sudo gem install jekyll bundler
 # Configuration for Git
 git config --global user.name "Yungon Park"
 git config --global user.email "hahafree12@gmail.com"
+
+# Install AWS CLI
+sudo apt -y install awscli
