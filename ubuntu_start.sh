@@ -145,3 +145,13 @@ git config --global user.email "hahafree12@gmail.com"
 
 # Install AWS CLI
 sudo apt -y install awscli
+
+# Make alias to move to parent directories.
+echo '# Alias to move to parent directories.' >> ~/.bashrc
+echo 'alias ..="cd .."' >> ~/.bashrc
+echo 'alias ...="cd ../.."' >> ~/.bashrc
+echo 'alias ....="cd ../../.."' >> ~/.bashrc
+echo 'alias .....="cd ../../../.."' >> ~/.bashrc
+echo 'alias ......="cd ../../../../.."' >> ~/.bashrc
+
+source ~/.bashrc
