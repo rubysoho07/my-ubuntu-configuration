@@ -92,6 +92,9 @@ pyenv update
 pyenv install 2.7.11
 pyenv install 3.6.5
 
+# Use Python 3.6.5 as default version of Python on executing bash
+echo 'export PYENV_VERSION="3.6.5"' >> ~/.bashrc
+
 # Install nvm & Node.js
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
