@@ -122,16 +122,6 @@ wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 # Install GIMP & InkScape
 sudo apt -y install gimp inkscape
 
-# Make update script.
-echo '#!/bin/bash' > ~/update.sh
-echo 'sudo apt update' >> ~/update.sh
-echo 'sudo apt -y upgrade' >> ~/update.sh
-echo 'sudo apt -y autoremove' >> ~/update.sh
-echo 'sudo apt autoclean' >> ~/update.sh
-echo 'sudo apt clean' >> ~/update.sh
-
-chmod 755 ~/update.sh
-
 # Install ruby and jekyll
 sudo apt -y install ruby-full
 sudo gem install jekyll bundler
@@ -152,3 +142,13 @@ echo 'alias .....="cd ../../../.."' >> ~/.bashrc
 echo 'alias ......="cd ../../../../.."' >> ~/.bashrc
 
 source ~/.bashrc
+
+# Make update script.
+echo '#!/bin/bash' > ~/update.sh
+echo 'sudo apt update' >> ~/update.sh
+echo 'sudo apt -y upgrade' >> ~/update.sh
+echo 'sudo apt -y autoremove' >> ~/update.sh
+echo 'sudo apt autoclean' >> ~/update.sh
+echo 'sudo apt clean' >> ~/update.sh
+
+chmod 755 ~/update.sh
