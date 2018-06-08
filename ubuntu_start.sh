@@ -90,7 +90,7 @@ pyenv update
 
 # Install pyenv 2.7, 3.6
 pyenv install 2.7.11
-pyenv install 3.6.2
+pyenv install 3.6.5
 
 # Install nvm & Node.js
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
