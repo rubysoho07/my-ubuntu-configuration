@@ -17,6 +17,10 @@ sudo apt -y install exfat-fuse exfat-utils
 # Install Git
 sudo apt -y install git
 
+# Configuration for Git
+git config --global user.name "Yungon Park"
+git config --global user.email "hahafree12@gmail.com"
+
 #####
 # 2. Register additional repositories
 #####
@@ -31,6 +35,15 @@ sudo add-apt-repository ppa:atareao/atareao
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 
+# Docker
+sudo apt -y install apt-transport-https ca-certificates software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   edge"
+
 #####
 # 3. Configuration
 #####
@@ -44,14 +57,8 @@ sudo sed -i 's/AVAHI_DAEMON_DETECT_LOCAL=1/AVAHI_DAEMON_DETECT_LOCAL=0/' /usr/li
 sudo sed -i 's/AVAHI_DAEMON_DETECT_LOCAL=1/AVAHI_DAEMON_DETECT_LOCAL=0/' /etc/default/avahi-daemon
 
 #####
-# 4. Install packages
+# 4. Install Programming Tools
 #####
-
-# vim
-sudo apt -y install vim
-
-# Touchpad-indicator
-sudo apt -y install touchpad-indicator
 
 # build-essential (gcc, gdb...)
 sudo apt -y install build-essential
@@ -91,7 +98,25 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | b
 nvm install node
 nvm install stable
 
-# TODO: Install Golang
+# Install ruby and jekyll
+sudo apt -y install ruby-full
+sudo gem install jekyll bundler
+
+# Install gvm (Golang)
+sudo apt -y install mercurial make binutils bison gcc
+bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+
+source ~/.bashrc
+
+# -B means installing golang from binary source
+gvm install go1.9.7 -B
+
+#####
+# 5. Install Tools to Improve Productivity
+#####
+
+# vim
+sudo apt -y install vim
 
 # Install Visual Studio Code
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -101,6 +126,19 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 sudo apt update
 
 sudo apt -y install code
+
+# Touchpad-indicator
+sudo apt -y install touchpad-indicator
+
+# Install GIMP & InkScape
+sudo apt -y install gimp inkscape
+
+# Install Docker
+sudo apt -y install docker-ce
+
+#####
+# 6. Install Database
+#####
 
 # Install MongoDB
 sudo apt -y install mongodb-org
@@ -116,22 +154,19 @@ sudo make install
 cd ..
 rm -rf redis-stable/ redis-stable.tar.gz
 
+#####
+# 7. Install Tools for Cloud Services
+#####
+
 # Install Heroku
 wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
-# Install GIMP & InkScape
-sudo apt -y install gimp inkscape
-
-# Install ruby and jekyll
-sudo apt -y install ruby-full
-sudo gem install jekyll bundler
-
-# Configuration for Git
-git config --global user.name "Yungon Park"
-git config --global user.email "hahafree12@gmail.com"
-
 # Install AWS CLI
 sudo apt -y install awscli
+
+#####
+# 8. Make script & Edit alias configuration
+#####
 
 # Make alias to move to parent directories.
 echo '# Alias to move to parent directories.' >> ~/.bashrc
