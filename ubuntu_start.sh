@@ -102,9 +102,6 @@ sudo apt update
 
 sudo apt -y install code
 
-# Install PostgreSQL
-sudo apt -y install postgresql postgresql-contrib
-
 # Install MongoDB
 sudo apt -y install mongodb-org
 sudo service mongod start
