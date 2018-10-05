@@ -112,7 +112,7 @@ bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/bins
 source ~/.bashrc
 
 # -B means installing golang from binary source
-gvm install go1.9.7 -B
+gvm install go1.11.1 -B
 
 #####
 # 5. Install Tools to Improve Productivity
