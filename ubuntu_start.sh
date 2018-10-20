@@ -25,9 +25,6 @@ git config --global user.email "hahafree12@gmail.com"
 # 2. Register additional repositories
 #####
 
-# Java
-sudo add-apt-repository ppa:webupd8team/java
-
 # Touchpad-indicator
 sudo add-apt-repository ppa:atareao/atareao
 
@@ -67,8 +64,8 @@ sudo apt -qq -y install build-essential
 sudo apt -qq -y install ubuntu-restricted-extras
 sudo apt -qq -y install smplayer
 
-# Install Java (From Oracle)
-sudo apt -qq -y install oracle-java8-installer
+# Install Java (OpenJDK)
+sudo apt -qq -y install openjdk-8-jdk
 
 # Install pyenv & Python 2.7 + 3.6
 # (requisitions)
