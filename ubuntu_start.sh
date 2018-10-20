@@ -4,18 +4,18 @@
 # 1. Update and upgrade OS and applications. 
 #####
 echo 'Updating OS and Applications...'
-sudo apt update > /dev/null
-sudo apt -y upgrade > /dev/null
-sudo apt -y autoremove > /dev/null
+sudo apt -qq update
+sudo apt -qq -y upgrade
+sudo apt -qq -y autoremove
 
 # Install curl & wget
-sudo apt -y install curl wget
+sudo apt -qq -y install curl wget
 
 # To use exFAT formatted SD(or MicroSD) cards
-sudo apt -y install exfat-fuse exfat-utils
+sudo apt -qq -y install exfat-fuse exfat-utils
 
 # Install Git
-sudo apt -y install git
+sudo apt -qq -y install git
 
 # Configuration for Git
 git config --global user.name "Yungon Park"
@@ -36,7 +36,7 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD7
 echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 
 # Docker
-sudo apt -y install apt-transport-https ca-certificates software-properties-common
+sudo apt -qq -y install apt-transport-https ca-certificates software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 sudo add-apt-repository \
@@ -61,18 +61,18 @@ sudo sed -i 's/AVAHI_DAEMON_DETECT_LOCAL=1/AVAHI_DAEMON_DETECT_LOCAL=0/' /etc/de
 #####
 
 # build-essential (gcc, gdb...)
-sudo apt -y install build-essential
+sudo apt -qq -y install build-essential
 
 # Install Restricted extras & SMPlayer
-sudo apt -y install ubuntu-restricted-extras
-sudo apt -y install smplayer
+sudo apt -qq -y install ubuntu-restricted-extras
+sudo apt -qq -y install smplayer
 
 # Install Java (From Oracle)
-sudo apt -y install oracle-java8-installer
+sudo apt -qq -y install oracle-java8-installer
 
 # Install pyenv & Python 2.7 + 3.6
 # (requisitions)
-sudo apt install -y make libssl-dev zlib1g-dev libbz2-dev \
+sudo apt install -qq -y make libssl-dev zlib1g-dev libbz2-dev \
 		 libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev \
 		 xz-utils tk-dev
 
@@ -102,11 +102,11 @@ nvm install node
 nvm install stable
 
 # Install ruby and jekyll
-sudo apt -y install ruby-full
+sudo apt -qq -y install ruby-full
 sudo gem install jekyll bundler
 
 # Install gvm (Golang)
-sudo apt -y install mercurial make binutils bison gcc
+sudo apt -qq -y install mercurial make binutils bison gcc
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 
 source ~/.bashrc
@@ -119,32 +119,32 @@ gvm install go1.11.1 -B
 #####
 
 # vim
-sudo apt -y install vim
+sudo apt -qq -y install vim
 
 # Install Visual Studio Code
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
-sudo apt update
+sudo apt -qq update
 
-sudo apt -y install code
+sudo apt -qq -y install code
 
 # Touchpad-indicator
-sudo apt -y install touchpad-indicator
+sudo apt -qq -y install touchpad-indicator
 
 # Install GIMP & InkScape
-sudo apt -y install gimp inkscape
+sudo apt -qq -y install gimp inkscape
 
 # Install Docker
-sudo apt -y install docker-ce
+sudo apt -qq -y install docker-ce
 
 #####
 # 6. Install Database
 #####
 
 # Install MongoDB
-sudo apt -y install mongodb-org
+sudo apt -qq -y install mongodb-org
 sudo service mongod start
 
 # Install Redis
@@ -165,7 +165,7 @@ rm -rf redis-stable/ redis-stable.tar.gz
 wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
 # Install AWS CLI
-sudo apt -y install awscli
+sudo apt -qq -y install awscli
 
 #####
 # 8. Make script & Edit alias configuration
@@ -183,10 +183,10 @@ source ~/.bashrc
 
 # Make update script.
 echo '#!/bin/bash' > ~/update.sh
-echo 'sudo apt update' >> ~/update.sh
-echo 'sudo apt -y upgrade' >> ~/update.sh
-echo 'sudo apt -y autoremove' >> ~/update.sh
-echo 'sudo apt autoclean' >> ~/update.sh
-echo 'sudo apt clean' >> ~/update.sh
+echo 'sudo apt -qq update' >> ~/update.sh
+echo 'sudo apt -qq -y upgrade' >> ~/update.sh
+echo 'sudo apt -qq -y autoremove' >> ~/update.sh
+echo 'sudo apt -qq autoclean' >> ~/update.sh
+echo 'sudo apt -qq clean' >> ~/update.sh
 
 chmod 755 ~/update.sh
