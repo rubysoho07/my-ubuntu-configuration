@@ -9,13 +9,13 @@ sudo apt -qq -y upgrade
 sudo apt -qq -y autoremove
 
 # Install curl & wget
-sudo apt -qq -y install curl wget
+sudo apt -y install curl wget
 
 # To use exFAT formatted SD(or MicroSD) cards
-sudo apt -qq -y install exfat-fuse exfat-utils
+sudo apt -y install exfat-fuse exfat-utils
 
 # Install Git
-sudo apt -qq -y install git
+sudo apt -y install git
 
 # Configuration for Git
 git config --global user.name "Yungon Park"
@@ -33,7 +33,7 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD7
 echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 
 # Docker
-sudo apt -qq -y install apt-transport-https ca-certificates software-properties-common
+sudo apt -y install apt-transport-https ca-certificates software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 sudo add-apt-repository \
@@ -58,18 +58,18 @@ sudo sed -i 's/AVAHI_DAEMON_DETECT_LOCAL=1/AVAHI_DAEMON_DETECT_LOCAL=0/' /etc/de
 #####
 
 # build-essential (gcc, gdb...)
-sudo apt -qq -y install build-essential
+sudo apt -y install build-essential
 
 # Install Restricted extras & SMPlayer
-sudo apt -qq -y install ubuntu-restricted-extras
-sudo apt -qq -y install smplayer
+sudo apt -y install ubuntu-restricted-extras
+sudo apt -y install smplayer
 
 # Install Java (OpenJDK)
-sudo apt -qq -y install openjdk-8-jdk
+sudo apt -y install openjdk-8-jdk
 
 # Install pyenv & Python 2.7 + 3.6
 # (requisitions)
-sudo apt install -qq -y make libssl-dev zlib1g-dev libbz2-dev \
+sudo apt install -y make libssl-dev zlib1g-dev libbz2-dev \
 		 libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev \
 		 xz-utils tk-dev
 
@@ -99,11 +99,11 @@ nvm install node
 nvm install stable
 
 # Install ruby and jekyll
-sudo apt -qq -y install ruby-full
+sudo apt -y install ruby-full
 sudo gem install jekyll bundler
 
 # Install gvm (Golang)
-sudo apt -qq -y install mercurial make binutils bison gcc
+sudo apt -y install mercurial make binutils bison gcc
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 
 source ~/.bashrc
@@ -116,7 +116,7 @@ gvm install go1.11.1 -B
 #####
 
 # vim
-sudo apt -qq -y install vim
+sudo apt -y install vim
 
 # Install Visual Studio Code
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -125,23 +125,23 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 
 sudo apt -qq update
 
-sudo apt -qq -y install code
+sudo apt -y install code
 
 # Touchpad-indicator
-sudo apt -qq -y install touchpad-indicator
+sudo apt -y install touchpad-indicator
 
 # Install GIMP & InkScape
-sudo apt -qq -y install gimp inkscape
+sudo apt -y install gimp inkscape
 
 # Install Docker
-sudo apt -qq -y install docker-ce
+sudo apt -y install docker-ce
 
 #####
 # 6. Install Database
 #####
 
 # Install MongoDB
-sudo apt -qq -y install mongodb-org
+sudo apt -y install mongodb-org
 sudo service mongod start
 
 # Install Redis
@@ -162,7 +162,7 @@ rm -rf redis-stable/ redis-stable.tar.gz
 wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
 # Install AWS CLI
-sudo apt -qq -y install awscli
+sudo apt -y install awscli
 
 #####
 # 8. Make script & Edit alias configuration
