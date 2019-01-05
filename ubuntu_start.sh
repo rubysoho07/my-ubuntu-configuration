@@ -32,6 +32,11 @@ sudo add-apt-repository ppa:atareao/atareao
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
 echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 
+# Visual Studio Code
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
 # Docker
 sudo apt -y install apt-transport-https ca-certificates software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -60,14 +65,10 @@ sudo sed -i 's/AVAHI_DAEMON_DETECT_LOCAL=1/AVAHI_DAEMON_DETECT_LOCAL=0/' /etc/de
 # build-essential (gcc, gdb...)
 sudo apt -y install build-essential
 
-# Install Restricted extras & SMPlayer
-sudo apt -y install ubuntu-restricted-extras
-sudo apt -y install smplayer
-
 # Install Java (OpenJDK)
 sudo apt -y install openjdk-8-jdk
 
-# Install pyenv & Python 2.7 + 3.6
+# Install pyenv & Python 3.7
 # (requisitions)
 sudo apt install -y make libssl-dev zlib1g-dev libbz2-dev \
 		 libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev \
@@ -85,12 +86,11 @@ source ~/.bashrc
 
 pyenv update
 
-# Install pyenv 2.7, 3.6
-pyenv install 2.7.11
-pyenv install 3.6.5
+# Install pyenv 3.7
+pyenv install 3.7.0
 
-# Use Python 3.6.5 as default version of Python on executing bash
-echo 'export PYENV_VERSION="3.6.5"' >> ~/.bashrc
+# Use Python 3.7.0 as default version of Python on executing bash
+echo 'export PYENV_VERSION="3.7.0"' >> ~/.bashrc
 
 # Install nvm & Node.js
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
@@ -111,21 +111,15 @@ source ~/.bashrc
 # -B means installing golang from binary source
 gvm install go1.11.1 -B
 
+# Editors (vim & VSCode)
+sudo apt -y install vim code
+
+# Install Docker
+sudo apt -y install docker-ce
+
 #####
-# 5. Install Tools to Improve Productivity
+# 5. Install Tools for Productivity & Multimedia
 #####
-
-# vim
-sudo apt -y install vim
-
-# Install Visual Studio Code
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-
-sudo apt -qq update
-
-sudo apt -y install code
 
 # Touchpad-indicator
 sudo apt -y install touchpad-indicator
@@ -133,8 +127,8 @@ sudo apt -y install touchpad-indicator
 # Install GIMP & InkScape
 sudo apt -y install gimp inkscape
 
-# Install Docker
-sudo apt -y install docker-ce
+# Install Restricted extras & SMPlayer
+sudo apt -y install ubuntu-restricted-extras smplayer
 
 #####
 # 6. Install Database
