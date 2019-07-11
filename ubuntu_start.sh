@@ -8,8 +8,8 @@ sudo apt -qq update
 sudo apt -qq -y upgrade
 sudo apt -qq -y autoremove
 
-# Install curl & wget
-sudo apt -y install curl wget
+# Install wget
+sudo apt -y install wget
 
 # To use exFAT formatted SD(or MicroSD) cards
 sudo apt -y install exfat-fuse exfat-utils

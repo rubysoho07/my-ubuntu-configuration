@@ -1,7 +1,15 @@
 # my-ubuntu-configuration
 Run this script after installing Ubuntu on my computer.
 
-Contents for this script:
+## How to run first
+
+```
+$ sudo apt install -y curl
+$ curl -fs https://raw.githubusercontent.com/rubysoho07/my-ubuntu-configuration/master/ubuntu_start.sh | bash
+```
+
+## Contents for this script
+
 - [ ] Change repository address for downloading and updating software
 - [x] Update up-to-date packages installed on Ubuntu 
 - [x] Establishing essential environment to develop software (e.g. gcc, gdb)
